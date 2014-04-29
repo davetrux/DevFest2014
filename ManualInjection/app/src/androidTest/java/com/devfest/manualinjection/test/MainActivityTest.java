@@ -10,10 +10,9 @@ import com.devfest.manualinjection.app.MainActivity;
  */
 public class MainActivityTest extends ActivityUnitTestCase<MainActivity> {
 
-    private MainActivity activity;
 
-    public MainActivityTest(Class<MainActivity> activityClass) {
-        super(activityClass);
+    public MainActivityTest() {
+        super(MainActivity.class);
     }
 
     @Override
@@ -23,13 +22,14 @@ public class MainActivityTest extends ActivityUnitTestCase<MainActivity> {
 
         setApplication(new MockMainApplication());
 
-        Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
-        startActivity(intent, null, null);
-
-        activity = getActivity();
     }
 
     public void testNumberOfRows(){
+
+        Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
+        startActivity(intent, null, null);
+
+        MainActivity activity = getActivity();
 
         assertNotNull(activity);
 
