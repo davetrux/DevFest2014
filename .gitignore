@@ -24,6 +24,9 @@ proguard/
 
 #IntelliJ Files
 .idea
+*.iml
+*.ipr
+*.iws
 
 # Gradle system folder
 .gradle/
