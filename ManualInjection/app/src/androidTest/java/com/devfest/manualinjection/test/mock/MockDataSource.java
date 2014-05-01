@@ -1,4 +1,4 @@
-package com.devfest.manualinjection.test;
+package com.devfest.manualinjection.test.mock;
 
 import com.devfest.manualinjection.data.DataProvider;
 import com.devfest.manualinjection.data.ToDo;

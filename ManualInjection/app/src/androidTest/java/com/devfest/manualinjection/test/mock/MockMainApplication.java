@@ -1,4 +1,4 @@
-package com.devfest.manualinjection.test;
+package com.devfest.manualinjection.test.mock;
 
 import android.test.mock.MockApplication;
 

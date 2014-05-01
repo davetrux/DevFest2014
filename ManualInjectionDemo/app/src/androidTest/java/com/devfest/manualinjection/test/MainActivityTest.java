@@ -1,6 +1,5 @@
 package com.devfest.manualinjection.test;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
 import android.widget.ListView;
@@ -29,7 +28,7 @@ public class MainActivityTest extends ActivityUnitTestCase<MainActivity> {
     }
 
     public void testNumberOfRows(){
-
+        //setApplication(new MockMainApplication());
         Intent intent = new Intent(getInstrumentation().getTargetContext(), MainActivity.class);
         startActivity(intent, null, null);
 
@@ -37,10 +36,6 @@ public class MainActivityTest extends ActivityUnitTestCase<MainActivity> {
 
         assertNotNull(activity);
 
-        getInstrumentation().waitForIdleSync();
-
-
-        Fragment frag = activity.getFragmentManager().findFragmentByTag("ui");
 
         ListView list = (ListView)activity.findViewById(R.id.taskList);
 
