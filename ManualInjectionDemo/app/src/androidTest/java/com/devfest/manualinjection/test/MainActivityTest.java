@@ -40,5 +40,9 @@ public class MainActivityTest extends ActivityUnitTestCase<MainActivity> {
         ListView list = (ListView)activity.findViewById(R.id.taskList);
 
         assertNotNull(list);
+
+        int count = list.getAdapter().getCount();
+
+        assertEquals(count, 3);
     }
 }

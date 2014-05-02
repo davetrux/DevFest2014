@@ -45,6 +45,11 @@ public class MockDataSource implements DataProvider {
         item.setTitle("Title 2");
         data.add(item);
 
+        item = new ToDo();
+        item.setId(16l);
+        item.setTitle("Title 3");
+        data.add(item);
+
         return data;
     }
 }
