@@ -9,7 +9,7 @@
          which is needed when building test cases. -->
     <uses-sdk android:minSdkVersion="19"/>
 
-    <application android:name="com.devfest.roboguice.test.mock.MockMainApplication">
+    <application>
         <uses-library android:name="android.test.runner"/>
     </application>
     <!--
@@ -19,5 +19,5 @@
     -->
     <instrumentation android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.devfest.roboguice.app"
-        android:label="Tests for com.devfest.manualinjection.app"/>
+        android:label="Tests for com.devfest.roboguice.app"/>
 </manifest>
