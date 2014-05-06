@@ -18,6 +18,6 @@
     "adb shell am instrument -w com.devfest.manualinjection.app.tests/android.test.InstrumentationTestRunner"
     -->
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.devfest.roboguice.app"
+        android:targetPackage=""
         android:label="Tests for com.devfest.roboguice.app"/>
 </manifest>

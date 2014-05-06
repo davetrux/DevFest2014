@@ -3,6 +3,8 @@ package com.devfest.roboguice.test.mock;
 import android.content.Context;
 import android.test.mock.MockApplication;
 
+import com.google.inject.util.Modules;
+
 import roboguice.RoboGuice;
 
 /**
@@ -10,17 +12,18 @@ import roboguice.RoboGuice;
  */
 public class MockMainApplication extends MockApplication {
 
+    private Context mContext;
+
     public MockMainApplication(Context context){
-        super();
+
         attachBaseContext(context);
+        mContext = context;
     }
 
     @Override
     public void onCreate() {
-        super.onCreate();
 
-        RoboGuice.setBaseApplicationInjector(this, RoboGuice.DEFAULT_STAGE, RoboGuice.newDefaultRoboModule(this), new TestModule());
-        //RoboGuice.getInjector(this).injectMembers(this);
+        RoboGuice.setBaseApplicationInjector(this, RoboGuice.DEFAULT_STAGE, Modules.override(RoboGuice.newDefaultRoboModule(this)).with(new TestModule()));
 
     }
 }
