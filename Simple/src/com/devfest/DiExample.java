@@ -13,7 +13,15 @@ public class DiExample {
         mBird = bird;
     }
 
+    public void setBird(Bird bird) {
+        mBird = bird;
+    }
+
     public String birdCall(){
         return mBird.call().toUpperCase();
+    }
+
+    public String birdCall(Bird bird){
+        return bird.call().toUpperCase();
     }
 }
