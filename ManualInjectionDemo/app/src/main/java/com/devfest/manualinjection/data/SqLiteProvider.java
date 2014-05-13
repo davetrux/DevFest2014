@@ -13,31 +13,31 @@ import java.util.List;
  * Created by truxall on 4/18/2014.
  * Concrete implementation of DataProvider
  */
-public class SqlLiteProvider implements DataProvider {
+public class SqLiteProvider implements DataProvider {
 
     private static final String DB_NAME = "tasks";
     private static final String TABLE_NAME = "tasks";
     private static final int DB_VERSION = 1;
-    private static final String DB_CREATE_QUERY = "CREATE TABLE " + SqlLiteProvider.TABLE_NAME + " (id integer primary key, title text not null);";
+    private static final String DB_CREATE_QUERY = "CREATE TABLE " + SqLiteProvider.TABLE_NAME + " (id integer primary key, title text not null);";
 
     private final SQLiteDatabase storage;
     private final SQLiteOpenHelper helper;
 
-    public SqlLiteProvider(final Context ctx)
+    public SqLiteProvider(final Context ctx)
     {
-        this.helper = new SQLiteOpenHelper(ctx, SqlLiteProvider.DB_NAME, null, SqlLiteProvider.DB_VERSION)
+        this.helper = new SQLiteOpenHelper(ctx, SqLiteProvider.DB_NAME, null, SqLiteProvider.DB_VERSION)
         {
             @Override
             public void onCreate(final SQLiteDatabase db)
             {
-                db.execSQL(SqlLiteProvider.DB_CREATE_QUERY);
+                db.execSQL(SqLiteProvider.DB_CREATE_QUERY);
             }
 
             @Override
             public void onUpgrade(final SQLiteDatabase db, final int oldVersion,
                                   final int newVersion)
             {
-                db.execSQL("DROP TABLE IF EXISTS " + SqlLiteProvider.TABLE_NAME);
+                db.execSQL("DROP TABLE IF EXISTS " + SqLiteProvider.TABLE_NAME);
                 this.onCreate(db);
             }
         };
@@ -52,12 +52,12 @@ public class SqlLiteProvider implements DataProvider {
         data.put("title", item.getTitle());
         data.put("id", item.getId());
 
-        this.storage.insert(SqlLiteProvider.TABLE_NAME, null, data);
+        this.storage.insert(SqLiteProvider.TABLE_NAME, null, data);
     }
 
     @Override
     public long getNextId() {
-        String query = "SELECT MAX(id) AS max_id FROM " + SqlLiteProvider.TABLE_NAME;
+        String query = "SELECT MAX(id) AS max_id FROM " + SqLiteProvider.TABLE_NAME;
         Cursor cursor = this.storage.rawQuery(query, null);
 
         int id = 0;
@@ -73,19 +73,19 @@ public class SqlLiteProvider implements DataProvider {
 
     @Override
     public void deleteAll() {
-        this.storage.delete(SqlLiteProvider.TABLE_NAME, null, null);
+        this.storage.delete(SqLiteProvider.TABLE_NAME, null, null);
     }
 
     @Override
     public void deleteTask(final long id) {
-        this.storage.delete(SqlLiteProvider.TABLE_NAME, "id=" + id, null);
+        this.storage.delete(SqLiteProvider.TABLE_NAME, "id=" + id, null);
     }
 
     @Override
     public List<ToDo> findAll() {
         final ArrayList<ToDo> tasks = new ArrayList<ToDo>();
 
-        final Cursor c = this.storage.query(SqlLiteProvider.TABLE_NAME, new String[]
+        final Cursor c = this.storage.query(SqLiteProvider.TABLE_NAME, new String[]
                 { "id", "title" }, null, null, null, null, null);
 
         if (c != null)

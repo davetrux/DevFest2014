@@ -2,8 +2,6 @@ package com.devfest.manualinjection.app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devfest.manualinjection.data.DataProvider;
-import com.devfest.manualinjection.data.SqlLiteProvider;
+import com.devfest.manualinjection.data.SqLiteProvider;
 import com.devfest.manualinjection.data.ToDo;
 
 import java.util.List;
@@ -82,7 +80,7 @@ public class MainActivity extends Activity {
                 final long todoId = (Long) v.getTag();
 
                 //Remove from the local database
-                final SqlLiteProvider provider = new SqlLiteProvider(parent.getContext());
+                final SqLiteProvider provider = new SqLiteProvider(parent.getContext());
                 provider.deleteTask(todoId);
 
                 mData.remove(position);
