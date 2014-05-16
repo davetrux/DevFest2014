@@ -5,6 +5,6 @@ Code from my talk about Dependency Injection at [Michigan Google Developers DevF
 
 [The slides can be found here](http://bit.ly/androidDI)
 
-The Android projects are using Maven to manage dependencies and Robolectric to run unit tests. If you need help getting your environment set up for using Maven with Android, see [Create a new Android project with Robolectric unit test support](https://github.com/bkiers/notes/wiki/Create-a-new-Android-project-with-Robolectric-unit-test-support)
+The Android projects are using Maven to manage dependencies and Robolectric to run unit tests. If you need help getting your environment set up for using Maven and Robolectric with Android, see [Create a new Android project with Robolectric unit test support](https://github.com/bkiers/notes/wiki/Create-a-new-Android-project-with-Robolectric-unit-test-support)
 
   
