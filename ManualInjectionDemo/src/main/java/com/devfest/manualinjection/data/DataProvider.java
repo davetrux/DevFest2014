@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Created by truxall on 4/18/2014.
- * An Interfact for a ToDoData provider
+ * An Interface for a ToDoData provider
  */
 public interface DataProvider {
     void addTask(ToDo item);
