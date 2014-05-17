@@ -1,5 +1,6 @@
 package com.devfest;
 
+import com.devfest.fowl.Bird;
 import com.devfest.fowl.Crow;
 import com.devfest.fowl.BlueJay;
 import com.devfest.fowl.Owl;
@@ -11,16 +12,18 @@ public class BadExample {
 
     public String birdCall(String birdType){
 
+        Bird bird = null;
+
         if(birdType.equals("Owl")) {
-            Owl bird = new Owl();
-            return bird.call().toUpperCase();
+            bird = new Owl();
         } else if(birdType.equals("BlueJay")) {
-            BlueJay bird = new BlueJay();
-            return bird.call().toUpperCase();
+            bird = new BlueJay();
         } else if(birdType.equals("Crow")) {
-            Crow bird = new Crow();
-            return bird.call().toUpperCase();
+            bird = new Crow();
         }
-        return "";
+
+        if(bird == null) {return "";}
+
+        return bird.call().toUpperCase();
    }
 }

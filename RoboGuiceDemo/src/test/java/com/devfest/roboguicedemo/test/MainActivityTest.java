@@ -31,6 +31,8 @@ public class MainActivityTest {
     @Test
     public void testNumberOfRows(){
 
+        final int Expected_Rows = 3;
+
         MainActivity activity = Robolectric.buildActivity(MainActivity.class).create().visible().get();
 
         ListView list = (ListView)activity.findViewById(R.id.taskList);
@@ -39,6 +41,6 @@ public class MainActivityTest {
 
         int count = list.getAdapter().getCount();
 
-        assertEquals(3, count);
+        assertEquals(Expected_Rows, count);
     }
 }
