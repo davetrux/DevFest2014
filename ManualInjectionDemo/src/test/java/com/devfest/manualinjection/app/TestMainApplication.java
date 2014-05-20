@@ -15,6 +15,7 @@ public class TestMainApplication extends MainApplication implements TestLifecycl
     public DataProvider getDataProvider() {
         return new MockDataSource();
     }
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -31,15 +31,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MainApplication app = (MainApplication) getApplication();
+        app.getObjectGraph().inject(this);
+
+
         mTaskView = (ListView) findViewById(R.id.taskList);
 
         mNewTaskText = (TextView) findViewById(R.id.taskText);
 
         Button action = (Button) findViewById(R.id.newTask);
         action.setOnClickListener(this.handleNewTaskEvent);
-
-        MainApplication app = (MainApplication) getApplication();
-        app.getObjectGraph().inject(this);
 
         mData = findPersistedRecords();
 
